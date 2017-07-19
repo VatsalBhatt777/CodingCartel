@@ -9,16 +9,13 @@ public class Survey {
 		
 Scanner scanny = new Scanner(System.in);	
 
-System.out.println("Please enter your name: ");
+ShortQuestions("What is one thing you would like to see change, if any ");
+ShortQuestions("What is it that helps you to be productive and provide quality service? ");
 
-String name = scanny.nextLine();
-
-WriteOutput(name);
-//ReadFile(name);
 
 	}
 
-	public static void WriteOutput(String FileName) throws IOException{
+	public static void WriteOutput(String WriteThis) throws IOException{
 		
 		File file = new File("C:\\Users\\bhavat\\Desktop\\Feedback.csv");
 
@@ -29,7 +26,7 @@ WriteOutput(name);
 		FileWriter writer = new FileWriter(file, true); 
 
 		//Writes the content to the file
-		writer.write("This is an example\n"); 
+		writer.write(WriteThis); 
 		writer.flush();
 		writer.close();
 
@@ -47,6 +44,33 @@ WriteOutput(name);
 	      fr.close();
 
 	}
+	public static void ShortQuestions(String Question) throws IOException{
+		System.out.println("Please answer following");
+		System.out.println(Question);
+		Scanner userAnswer = new Scanner(System.in);
+		String answer= userAnswer.nextLine();
+		WriteOutput(Question);
+		WriteOutput("/n");
+		WriteOutput(answer);
+		
+		
+		
 	}
+public static void multipleChoice (String question, String[] responses) {
+		
+		System.out.println(question);
+		Scanner userInput= new Scanner(System.in);
+		String answerOutput = "Possible answer choices are as follows \n";
+		
+		//string together possible answers for later printing
+		for(int i = 0; i<= responses.length; i++ )
+			answerOutput += i + ": " + responses[i] + ", ";
+			
+		System.out.println(answerOutput);
+		int userInt = userInput.nextInt();
+		
+	} 
+	}
+	
 	
 
