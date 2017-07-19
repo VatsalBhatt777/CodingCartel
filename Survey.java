@@ -9,7 +9,13 @@ public class Survey {
 		
 Scanner scanny = new Scanner(System.in);	
 
-ShortQuestions("What is one thing you would like to see change, if any ");
+//int[] Que1Multiple= new int[3];
+
+String[] choices1={"Not at all", "some", "w" };
+
+multipleChoice("Are you happy with the following 1-5", choices1);
+
+ShortQuestions("What is one thing you would like to see change if any ");
 ShortQuestions("What is it that helps you to be productive and provide quality service? ");
 
 
@@ -50,24 +56,31 @@ ShortQuestions("What is it that helps you to be productive and provide quality s
 		Scanner userAnswer = new Scanner(System.in);
 		String answer= userAnswer.nextLine();
 		WriteOutput(Question);
-		WriteOutput("/n");
+		WriteOutput("\n");
 		WriteOutput(answer);
-		
+		WriteOutput("\n");
+
 		
 		
 	}
-public static void multipleChoice (String question, String[] responses) {
+public static void multipleChoice (String question, String[] responses) throws IOException {
 		
 		System.out.println(question);
 		Scanner userInput= new Scanner(System.in);
 		String answerOutput = "Possible answer choices are as follows \n";
 		
 		//string together possible answers for later printing
-		for(int i = 0; i<= responses.length; i++ )
+		for(int i = 0; i<= responses.length-1; i++ )
 			answerOutput += i + ": " + responses[i] + ", ";
 			
 		System.out.println(answerOutput);
 		int userInt = userInput.nextInt();
+		String test=responses[userInt];
+		WriteOutput(question);
+		WriteOutput("\n");
+		WriteOutput(test);
+		WriteOutput("\n");
+
 		
 	} 
 	}
